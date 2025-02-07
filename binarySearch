@@ -1,0 +1,22 @@
+binaryList = [2, 4, 16, 34, 55, 78, 99]
+
+binaryUserElement = int(input("Enter a value:"))
+
+def binarySearch(aList, lowIndex, highIndex, element):
+	middle = (lowIndex + highIndex) // 2
+	if element == aList[middle]:
+    	print(element, "found at index:", aList.index(element))
+    	return
+	elif element < aList[middle]:
+    	highIndex = middle
+    	binarySearch(aList, lowIndex, highIndex, element)
+	elif element > aList[middle]:
+    	lowIndex = middle
+    	if highIndex - lowIndex == 1:
+        	if aList[lowIndex] != element:
+            	aList[highIndex] == element
+            	print(element, "found at index:", aList.index(element))
+            	return
+    	binarySearch(aList, lowIndex, highIndex, element)
+
+binarySearch(binaryList, 0, len(binaryList)-1, binaryUserElement)  	 
